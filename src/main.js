@@ -1,15 +1,13 @@
 import RigidBody from "./objects/rigidBody.js";
 
-const GRAVITY = 0.5;
+const GRAVITY = 9.81;
 
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let rigidBodies = [];
 
-console.log(ctx);
-
-let body1 = new RigidBody(200, 0, 50, "#ff0000");
-let body2 = new RigidBody(200, 100, 50, "#ff00ff");
+let body1 = new RigidBody(0, canvas.height - 100, 50, "#ff0000", true);
+let body2 = new RigidBody(200, canvas.height - 100, 50, "#ff00ff");
 
 rigidBodies.push(body1);
 rigidBodies.push(body2);
