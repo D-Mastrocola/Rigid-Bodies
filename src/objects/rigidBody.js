@@ -23,7 +23,7 @@ class RigidBody {
   }
   checkCollisions(canvas) {
     //Out of bounds
-    if (this.position.y + this.mass > canvas.height) {
+    if (this.position.y + this.mass/2 > canvas.height) {
       this.position.y = canvas.height - this.mass;
       this.velocity.y *= -1;
     }
@@ -35,10 +35,13 @@ class RigidBody {
       this.position.x = 0;
       this.velocity.x *= -1;
     }
-    if (this.position.x + this.mass > canvas.width) {
+    if (this.position.x + this.mass/2 > canvas.width) {
       this.position.x = canvas.width - this.mass;
       this.velocity.x *= -1;
     }
+
+
+    //Rigid Bodies
   }
   update(GRAVITY, canvas) {
     this.velocity.x += this.force.x / this.mass;
@@ -56,7 +59,7 @@ class RigidBody {
   }
   draw(ctx) {
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.position.x, this.position.y, this.mass, this.mass);
+    ctx.fillRect(this.position.x - this.mass/2, this.position.y - this.mass/2 , this.mass, this.mass);
   }
 }
 export default RigidBody;
